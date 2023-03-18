@@ -21,7 +21,7 @@ function validateInput(testInput) {
         return("Empty")
 }    else if (isNaN(testInput)){
         return("Is a Number")
-    } else if (isNaN(testInput)){
+    } else if (!isNaN(testInput)){
         return ("Not a Number")
     }
    
@@ -35,13 +35,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    let cargoStatus = document.getElementById("cargoStatus")
 
             if (validateInput(pilot) === "Empty" || (validateInput(copilot)) === "Empty"){
-                window.alert("All fields are required! ")
-            } else if(validateInput(pilot) === "Is a Number " || (validateInput(copilot)) === "Is a Number")
-              {  window.alert("Make sure to enter valid information for each field!")
-            } else if  (list.style.visibility = "visible")
-               { pilotStatus.innerHTML = `Pilot ${pilot}`
-            } else if (fuelStatus < 10000 && cargoStatus <= 10000) {
-                list.style.visibility = "visible";
+               alert("All fields are required! ")
+            } else if(validateInput(pilot) === "Is a Number " || (validateInput(copilot)) === "Is a Number"){
+                  alert("Make sure to enter valid information for each field!")
+            } else if  (list.style.visibility = "visible") {
+                 pilotStatus.innerHTML = `Pilot ${pilot}`
+            } 
+            
+            if (fuelStatus < 10000 && cargoStatus <= 10000) {
                 fuelStatus.innerHTML= `not enough fuel for the journey ${fuelLevel}` ;
                 cargoStatus.innerHTML = "Cargo mass low enough for launch";
                 launchStatus.innerHTML = `Shuttle not ready for take off ${launchStatus}`;
