@@ -62,16 +62,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
                 launchStatus.innerHTML = `Shuttle is ready for take off ${launchStatus}`;
                 
             }
-            
-            
-            
-            
-            
-            else if (cargoStatus > 10000){
-                list.style.innerHTML = "visible";
-                cargoStatus.innerHTML = `there is too much mass for the shuttle to take off${cargoLevel}`;
-                launchStatus.innerHTML = `shuttle not ready for take off ${launchStatus}`
-            } 
 
 }
 
