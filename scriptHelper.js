@@ -38,14 +38,36 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
                 window.alert("All fields are required! ")
             } else if(validateInput(pilot) === "Is a Number " || (validateInput(copilot)) === "Is a Number")
               {  window.alert("Make sure to enter valid information for each field!")
-            } else {
-                list.style.visibility = "visible";
-                pilotStatus.innerHTML = `Pilot ${pilot}`
-            } if (fuelStatus < "10,000 liters") {
+            } else if  (list.style.visibility = "visible")
+               { pilotStatus.innerHTML = `Pilot ${pilot}`
+            } else if (fuelStatus < 10000 && cargoStatus <= 10000) {
                 list.style.visibility = "visible";
                 fuelStatus.innerHTML= `not enough fuel for the journey ${fuelLevel}` ;
+                cargoStatus.innerHTML = "Cargo mass low enough for launch";
                 launchStatus.innerHTML = `Shuttle not ready for take off ${launchStatus}`;
-            } else if (cargoStatus > "10,000 kilograms"){
+                launchStatus.style.color = "rgb (199, 37,78)";
+            } else if (fuelStatus >= 10000 && cargoStatus >10000){
+                fuelStatus.innerHTML = "Fuel level high enough for launch";
+                cargoStatus.innerHTML = "Cargo mass too heavy for launch";
+                launchStatus.innerHTML = `Shuttle not ready for take off ${launchStatus}`;
+                launchStatus.style.color = "rgb (199, 37,78)";
+            } else if (fuelStatus < 10000 && cargoStatus > 10000) {
+                fuelStatus.innerHTML = "Fuel level too low enough for launch";
+                cargoStatus.innerHTML = "Cargo mass too heavy for launch";
+                launchStatus.innerHTML = `Shuttle not ready for take off ${launchStatus}`;
+                launchStatus.style.color = "rgb (199, 37,78)";
+            } else {
+                fuelStatus.innerHTML = "Fuel level high enough for launch";
+                cargoStatus.innerHTML = "Cargo mass low enough for launch";
+                launchStatus.innerHTML = `Shuttle is ready for take off ${launchStatus}`;
+                
+            }
+            
+            
+            
+            
+            
+            else if (cargoStatus > 10000){
                 list.style.innerHTML = "visible";
                 cargoStatus.innerHTML = `there is too much mass for the shuttle to take off${cargoLevel}`;
                 launchStatus.innerHTML = `shuttle not ready for take off ${launchStatus}`
